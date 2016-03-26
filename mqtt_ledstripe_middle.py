@@ -70,8 +70,8 @@ class LedStripe:
 
     def _animateBlink(self):
         sstring = self.stripestring
-        speed = 10.0
-        for i in range(100):
+        speed = 7.0
+        for i in range(50):
             self.pushPalette("n")
             time.sleep(1.0 / speed)
             self.pushPalette("n")
@@ -84,7 +84,7 @@ class LedStripe:
 
 
     def doAnimations(self):
-        for f in self._callstack:
+        for f in set(self._callstack):
             f()
         self._callstack = []
 
